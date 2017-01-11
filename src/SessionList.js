@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 const URL = './sessions.json'
 import Toggle from './Toggle'
 import Search from './Search'
+import { fetchedSessions } from './store/index'
 
 class SessionList extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchedSessions: (sessions) => dispatch({type: 'FETCHED_SESSIONS', sessions}),
+    fetchedSessions: (sessions) => dispatch(fetchedSessions(sessions)),
     toggleSession: (name) => dispatch({type: 'TOGGLE_SESSION', name})
   }
 }

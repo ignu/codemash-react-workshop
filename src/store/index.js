@@ -2,6 +2,7 @@ import { createStore } from 'redux'
 import R from 'ramda'
 
 const SEARCH_SESSIONS = 'codemash/SEARCH_SESSIONS'
+const FETCHED_SESSIONS = 'codemash/FETCHED_SESSIONS'
 
 const DEFAULT_STATE = {
   filters: ["Kidz Mash"],
@@ -14,6 +15,13 @@ export const searchSessions = (searchTerm) => {
   return  {
     type: SEARCH_SESSIONS,
     searchTerm
+  }
+}
+
+export const fetchedSessions = (sessions) => {
+  return {
+    type: FETCHED_SESSIONS,
+    sessions
   }
 }
 
