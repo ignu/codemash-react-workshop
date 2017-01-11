@@ -6,7 +6,6 @@ const DEFAULT_STATE = {
 }
 
 const reducer = (state = DEFAULT_STATE, action) => {
-  console.log('action ----->', action)
   switch(action.type) {
   case 'FETCHED_SESSIONS':
     return { ...state,
