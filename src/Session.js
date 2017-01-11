@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 class Session extends Component {
   render() {
-    return (<div>
+    return (<div className="session">
       <div>{this.props.title}</div>
       <div>{this.props.abstract}</div>
     </div>
-           )
+   )
   }
 }
 
