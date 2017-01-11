@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import logo from './codemash.png';
 import './App.css';
+import { Provider } from 'react-redux'
+import store from './store/index'
 import SessionList from './SessionList'
+import { connect } from 'react-redux'
 
-class Loading extends Component {
+class _Loading extends Component {
   render() {
     if (this.props.loading) return <h1>Loading...</h1>
 
@@ -11,37 +14,34 @@ class Loading extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    loading: state.loading
+  }
+}
+
+const Loading = connect(mapStateToProps)(_Loading)
+
 const URL = './sessions.json'
+
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      loading: true,
-      sessions: []
-    }
 
-    fetch(URL)
-      .then(r => r.json())
-      .then((sessions) => this.setState({loading: false, sessions: sessions}))
+    //fetch(URL)
+    //  .then(r => r.json())
+    //  .then((sessions) => this.setState({loading: false, sessions: sessions}))
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="o" />
-          <h2>Welcome to Codemash</h2>
+      <Provider store={store}>
+        <div className="App">
+          <Loading>
+            <SessionList />
+          </Loading>
         </div>
-
-        <Loading loading={this.state.loading}>
-          <SessionList sessions={this.state.sessions} />
-          <SessionList sessions={this.state.sessions} />
-
-          <SessionList sessions={this.state.sessions} />
-          <SessionList sessions={this.state.sessions} />
-          <SessionList sessions={this.state.sessions} />
-        </Loading>
-      </div>
+      </Provider>
     );
   }
 }
