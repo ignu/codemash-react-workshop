@@ -52,7 +52,7 @@ const reducer = (state = DEFAULT_STATE, action) => {
       ...state,
       sessions: searchFor(action.searchTerm)(sessionData)
     }
-  case 'FETCHED_SESSIONS':
+  case FETCHED_SESSIONS:
     sessionData = action.sessions
 
     return { ...state,
