@@ -3,6 +3,7 @@ import Session from './Session'
 import { connect } from 'react-redux'
 const URL = './sessions.json'
 import Toggle from './Toggle'
+import Search from './Search'
 
 class SessionList extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class SessionList extends Component {
 
     return(
       <div>
+        <Search />
         <div className="toggles">
           <Toggle name="Pre-Compiler"/>
           <Toggle name="Sponsor Session"/>
