@@ -3,23 +3,24 @@ import logo from './codemash.png';
 import './App.css';
 import Session from './Session'
 
-const session = {
-  title: "React Everywhere",
-  abstract: "blah",
-  speakers: [{
-    firstName: "Len"
-  }]
+class SessionList extends Component {
+  render() {
+    const { sessions } = this.props
+    return(
+      <div>
+        { sessions.map(s => <Session key={s.id} {...s} />)}
+      </div>
+    )
+  }
 }
+const session = {id: 2, title: "React Everywhere", abstract: "blah", speakers: [{firstName: "Len"}]}
+const sessions = [session]
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Codemash</h2>
-        </div>
-        <Session {...session} />
+        <SessionList sessions={sessions} />
       </div>
     );
   }
