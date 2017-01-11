@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
 
 const Speaker = (props) => (
   <div>
-    {props.FirstName}
+    <Link to={`/speakers/${props.Id}`}>{props.FirstName}</Link>
   </div>
 )
 

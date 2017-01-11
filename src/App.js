@@ -12,8 +12,8 @@ class App extends Component {
         <div className="App">
           <Loading>
           </Loading>
+          { this.props.children }
 
-          <SessionList />
         </div>
       </Provider>
     );
