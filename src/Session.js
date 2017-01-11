@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 
-class Speaker extends Component {
-  render() {
-    return(
-      <div>
-        <div>{this.props.FirstName}</div>
-      </div>
-    )
-  }
-}
+const Speaker = (props) => (
+  <div>
+    {props.FirstName}
+  </div>
+)
 
 class Session extends Component {
   constructor(props) {
