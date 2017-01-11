@@ -2,10 +2,15 @@ exports[`test renders without crashing 1`] = `
 <div
   className="session">
   <div>
-    a
+    React Everywhere
   </div>
   <div>
-    b
+    blah
+  </div>
+  <div>
+    <div>
+      Len
+    </div>
   </div>
 </div>
 `;
