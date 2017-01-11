@@ -11,6 +11,9 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
+          <Loading>
+          </Loading>
+
           <SessionList />
         </div>
       </Provider>
