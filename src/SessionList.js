@@ -2,18 +2,8 @@ import React, { Component } from 'react';
 import Session from './Session'
 import { connect } from 'react-redux'
 const URL = './sessions.json'
-import R from 'ramda'
-console.log('R', R)
+import Toggle from './Toggle'
 
-const Toggle = (props) => {
-  const { toggled, onToggle, text } = props
-
-  return(
-    <div className={toggled ? 'toggled' : ''}>
-      <a href="#" onClick={onToggle}>{text}</a>
-    </div>
-  )
-}
 class SessionList extends Component {
   constructor(props) {
     super(props)
@@ -26,14 +16,15 @@ class SessionList extends Component {
   }
 
   render() {
-    const { sessions, filters } = this.props
-    const filter = (sessionName) => this.filterSessions.bind(this, sessionName)
+    const { sessions } = this.props
 
     return(
       <div>
         <div className="toggles">
-          <Toggle toggled={R.contains("Pre-Compiler", filters)} text="Pre-Compiler" onToggle={filter("Pre-Compiler")}/>
-          <Toggle toggled={R.contains("Kidz Mash", filters)} text="Kidz Mash" onToggle={filter("Kidz Mash")}/>
+          <Toggle name="Pre-Compiler"/>
+          <Toggle name="Sponsor Session"/>
+          <Toggle name="General Session"/>
+          <Toggle name="Kidz Mash"/>
         </div>
         { sessions.map(s => <Session key={s.Id} {...s} />)}
       </div>
