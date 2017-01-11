@@ -4,7 +4,7 @@ class Speaker extends Component {
   render() {
     return(
       <div>
-        <div>{this.props.firstName}</div>
+        <div>{this.props.FirstName}</div>
       </div>
     )
   }
@@ -23,18 +23,19 @@ class Session extends Component {
     })
   }
   render() {
-    const {title, abstract, speakers} = this.props
+    const {Title, Abstract, Speakers} = this.props
+
     return (<div className="session" onClick={this.toggleState.bind(this)}>
-      <div>{title}</div>
-      { this.state.showDetails && <div>{abstract}</div> }
-      <Speaker {...speakers[0]}/>
+      <div>{Title}</div>
+      { this.state.showDetails && <div>{Abstract}</div> }
+      <Speaker {...Speakers[0]}/>
     </div>
    )
   }
 }
 Session.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  abstract: React.PropTypes.string.isRequired,
-  speakers: React.PropTypes.array.isRequired
+  Title: React.PropTypes.string.isRequired,
+  Abstract: React.PropTypes.string.isRequired,
+  Speakers: React.PropTypes.array.isRequired
 }
 export default Session

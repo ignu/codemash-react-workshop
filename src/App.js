@@ -13,14 +13,29 @@ class SessionList extends Component {
     )
   }
 }
-const session = {id: 2, title: "React Everywhere", abstract: "blah", speakers: [{firstName: "Len"}]}
-const sessions = [session]
 
+const URL = './sessions.json'
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      sessions: []
+    }
+
+    fetch(URL)
+      .then(r => r.json())
+      .then((sessions) => this.setState({sessions: sessions}))
+  }
+
   render() {
     return (
       <div className="App">
-        <SessionList sessions={sessions} />
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Welcome to Codemash</h2>
+        </div>
+
+        <SessionList sessions={this.state.sessions} />
       </div>
     );
   }
