@@ -1,0 +1,10 @@
+exports[`test renders without crashing 1`] = `
+<div>
+  <div>
+    a
+  </div>
+  <div>
+    b
+  </div>
+</div>
+`;

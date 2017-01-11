@@ -1,21 +1,7 @@
 import React, { Component } from 'react';
 import logo from './codemash.png';
 import './App.css';
-
-class Session extends Component {
-  render() {
-    return (<div>
-       <div>{this.props.title}</div>
-       <div>{this.props.abstract}</div>
-     </div>
-   )
-  }
-}
-
-Session.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  abstract: React.PropTypes.string.isRequired
-}
+import Session from './Session'
 
 class App extends Component {
   render() {
